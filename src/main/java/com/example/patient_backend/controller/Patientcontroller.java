@@ -20,7 +20,7 @@ public class Patientcontroller {
     }
     @CrossOrigin(origins ="*")
     @PostMapping(path="/add",consumes = "application/json",produces = "application/json")
-    public String add(@RequestBody Patientmodel p)
+    public String Add(@RequestBody Patientmodel p)
     {
         System.out.println(p.getIds());
         System.out.println(p.getUsername().toString());
@@ -29,7 +29,7 @@ public class Patientcontroller {
         System.out.println(p.getDate().toString());
         System.out.println(p.getImage().toString());
         System.out.println(p.getDoctor().toString());
-
+        dao.save(p);
         return "Patient added Successfully";
     }
 }
